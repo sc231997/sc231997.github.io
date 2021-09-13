@@ -13,7 +13,7 @@ class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(0, 80, 0, 80),
+      margin: EdgeInsets.fromLTRB(0, 80, 0, 250),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -23,13 +23,13 @@ class _IntroState extends State<Intro> {
                 color: Theme.of(context).accentColor,
                 fontWeight: FontWeight.w400),
           ),
-          Container(height: 10),
+          Container(height: 20),
           FittedBox(
             fit: BoxFit.fill,
             child: Text(
               "Chandan Singh.",
               style:
-                  GoogleFonts.inter(fontSize: 70, fontWeight: FontWeight.w600),
+                  GoogleFonts.inter(fontSize: 70, fontWeight: FontWeight.bold),
             ),
           ),
           Container(height: 5),
@@ -38,27 +38,34 @@ class _IntroState extends State<Intro> {
             child: Text(
               "Your Friendly Developer.",
               style:
-                  GoogleFonts.inter(fontSize: 70, fontWeight: FontWeight.w600),
+                  GoogleFonts.inter(fontSize: 70, fontWeight: FontWeight.bold),
             ),
           ),
-          Container(height: 20),
+          Container(height: 30),
           Container(
             constraints: BoxConstraints(maxWidth: 500),
             child: Text(
               "I’m a software engineer specializing in building (and occasionally hacking) new things. Currently, I’m focused on building accessible, human-centered products @ADP.",
-              style: GoogleFonts.inter(),
+              style: GoogleFonts.inter(
+                fontSize: 15
+              ),
             ),
           ),
-          Container(height: 30),
+          Container(height: 50),
           OutlinedButton(
             style: OutlinedButton.styleFrom(
                 side:
-                    BorderSide(width: 1, color: Theme.of(context).accentColor)),
-            onPressed: () {},
-            child: Text(
-              "Resume",
-              style: GoogleFonts.firaCode(color: Theme.of(context).accentColor),
+                    BorderSide(width: 1, color: Theme.of(context).accentColor)
             ),
+            onPressed: () {},
+            child: Padding(
+              padding: EdgeInsets.all(15),
+              child: Text(
+                "Resume",
+                style: GoogleFonts.firaCode(color: Theme.of(context).accentColor),
+              )
+            )
+            ,
           ),
         ],
       ),

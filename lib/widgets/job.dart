@@ -11,6 +11,6 @@ class Jobs extends StatefulWidget {
 class _JobsState extends State<Jobs> {
   @override
   Widget build(BuildContext context) {
-    return SelectableText("Jobs");
+    return Placeholder();
   }
 }

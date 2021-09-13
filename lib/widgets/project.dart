@@ -10,6 +10,6 @@ class Project extends StatefulWidget {
 class _ProjectState extends State<Project> {
   @override
   Widget build(BuildContext context) {
-    return Text("Projects");
+    return Placeholder();
   }
 }
