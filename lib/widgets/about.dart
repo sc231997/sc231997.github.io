@@ -41,7 +41,7 @@ class _AboutState extends State<About> {
                       child: Padding(
                         padding: EdgeInsets.only(left: 20),
                         child: Divider(
-                          color: Theme.of(context).accentColor,
+                          color: Theme.of(context).secondaryHeaderColor,
                         ),
                       ),
                     )
@@ -92,7 +92,7 @@ class _AboutState extends State<About> {
                             padding: EdgeInsets.only(right: 10),
                             child:Icon(
                               Icons.play_arrow_outlined,
-                              color: Theme.of(context).accentColor,
+                              color: Theme.of(context).secondaryHeaderColor,
                               size: 10,
                             ),
                           ),

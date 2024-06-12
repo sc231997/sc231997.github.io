@@ -20,7 +20,7 @@ class _IntroState extends State<Intro> {
           Text(
             "Namaste! my name is",
             style: GoogleFonts.firaCode(
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).secondaryHeaderColor,
                 fontWeight: FontWeight.w400),
           ),
           Container(height: 20),
@@ -55,14 +55,14 @@ class _IntroState extends State<Intro> {
           OutlinedButton(
             style: OutlinedButton.styleFrom(
                 side:
-                    BorderSide(width: 1, color: Theme.of(context).accentColor)
+                    BorderSide(width: 1, color: Theme.of(context).secondaryHeaderColor)
             ),
             onPressed: () {},
             child: Padding(
               padding: EdgeInsets.all(15),
               child: Text(
                 "Resume",
-                style: GoogleFonts.firaCode(color: Theme.of(context).accentColor),
+                style: GoogleFonts.firaCode(color: Theme.of(context).secondaryHeaderColor),
               )
             )
             ,
