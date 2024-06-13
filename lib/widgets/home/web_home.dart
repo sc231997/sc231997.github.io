@@ -7,6 +7,8 @@ import 'package:my_portfolio/widgets/contact.dart';
 import 'package:my_portfolio/widgets/intro.dart';
 import 'package:my_portfolio/widgets/job.dart';
 import 'package:my_portfolio/widgets/project.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class WebHome extends StatefulWidget {
   WebHome({Key? key}) : super(key: key);
@@ -32,22 +34,36 @@ class _WebHomeState extends State<WebHome> {
                   IconButton(
                     icon: FaIcon(FontAwesomeIcons.githubAlt),
                     iconSize: 20.0,
-                    onPressed: () {},
+                    onPressed: () async {
+                      await launchUrlString("https://github.com/sc231997",
+                          webOnlyWindowName: "_blank");
+                    },
                   ),
                   IconButton(
                     icon: FaIcon(FontAwesomeIcons.linkedinIn),
                     iconSize: 20.0,
-                    onPressed: () {},
+                    onPressed: () async {
+                      await launchUrlString(
+                          "https://www.linkedin.com/in/chandan--singh",
+                          webOnlyWindowName: "_blank");
+                    },
                   ),
                   IconButton(
-                    icon: FaIcon(FontAwesomeIcons.twitter),
+                    icon: FaIcon(FontAwesomeIcons.xTwitter),
                     iconSize: 20.0,
-                    onPressed: () {},
+                    onPressed: () async {
+                      await launchUrlString("https://x.com/sc231997",
+                          webOnlyWindowName: "_blank");
+                    },
                   ),
                   IconButton(
                     icon: FaIcon(FontAwesomeIcons.instagram),
                     iconSize: 20.0,
-                    onPressed: () {},
+                    onPressed: () async {
+                      await launchUrlString(
+                          "https://www.instagram.com/sc231997",
+                          webOnlyWindowName: "_blank");
+                    },
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 20),
@@ -125,12 +141,14 @@ class _WebHomeState extends State<WebHome> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   RotatedBox(
-                    quarterTurns: 45,
-                    child: SelectableText(
-                      "sc231997@gmail.com",
-                      style: _textStyle,
-                    )
-                  ),
+                      quarterTurns: 45,
+                      child: SelectableText(
+                        "sc231997@gmail.com",
+                        style: _textStyle,
+                        onTap: () async {
+                          await launchUrlString("mailto:sc231997@gmail.com");
+                        },
+                      )),
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     width: 1,
