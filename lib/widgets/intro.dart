@@ -45,7 +45,7 @@ class _IntroState extends State<Intro> {
           Container(
             constraints: BoxConstraints(maxWidth: 500),
             child: Text(
-              "I’m a software engineer specializing in building (and occasionally hacking) new things. Currently, I’m focused on building accessible, human-centered products @ADP.",
+              "I'm a software engineer specializing in building (and occasionally hacking) new things. Currently, I'm focused on building tech of future @Qualcomm.",
               style: GoogleFonts.inter(
                 fontSize: 15
               ),
