@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_portfolio/models/job_experience.dart';
 import 'package:tab_container/tab_container.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class Jobs extends StatefulWidget {
   const Jobs({Key? key}) : super(key: key);
@@ -60,7 +62,11 @@ class _JobsState extends State<Jobs> {
                 size: 10,
               ),
             ),
-            Expanded(child: Text(experience))
+            Expanded(
+                child: Text(
+              experience,
+              style: GoogleFonts.inter(fontSize: 15),
+            ))
           ],
         ));
       }
@@ -68,12 +74,31 @@ class _JobsState extends State<Jobs> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              jobExperience.role,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20.0,
-              ),
+            Row(
+              children: [
+                Text(
+                  '${jobExperience.role} ',
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
+                ),
+                RichText(
+                  text: TextSpan(children: [
+                    TextSpan(
+                      text: '@${jobExperience.company}',
+                      style: GoogleFonts.inter(
+                        color: Theme.of(context).secondaryHeaderColor,
+                        fontSize: 20.0,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () async => await launchUrlString(
+                            jobExperience.url,
+                            webOnlyWindowName: "_blank"),
+                    ),
+                  ]),
+                )
+              ],
             ),
             Text(
               jobExperience.duration,
@@ -115,26 +140,28 @@ class _JobsState extends State<Jobs> {
                 Container(
                   height: 20,
                 ),
-                TabContainer(
-                    tabEdge: TabEdge.left,
-                    color: Color(0xff233554),
-                    tabsEnd: 0.33,
-                    tabExtent: 100,
-                    childPadding: const EdgeInsets.all(20.0),
-                    selectedTextStyle: TextStyle(
-                      color: Theme.of(context).secondaryHeaderColor,
-                      fontSize: 15.0,
-                    ),
-                    unselectedTextStyle: TextStyle(
-                      fontSize: 13.0,
-                      color: DefaultTextStyle.of(context).style.color,
-                    ),
-                    tabs: [
-                      Tab(text: 'Qualcomm'),
-                      Tab(text: 'ADP'),
-                      Tab(text: 'Fraydio'),
-                    ],
-                    children: jobExperienceWidget)
+                LayoutBuilder(builder: (context, constraints) {
+                  return TabContainer(
+                      tabEdge: (constraints.maxWidth >= 800)
+                          ? TabEdge.left
+                          : TabEdge.top,
+                      color: Color(0xff233554),
+                      tabExtent: 100,
+                      childPadding: const EdgeInsets.all(20.0),
+                      selectedTextStyle: TextStyle(
+                        color: Theme.of(context).secondaryHeaderColor,
+                        fontSize: 15.0,
+                      ),
+                      unselectedTextStyle: TextStyle(
+                        fontSize: 13.0,
+                        color: DefaultTextStyle.of(context).style.color,
+                      ),
+                      tabs: [
+                        for (var jobExperience in jobExperiences)
+                          Text(jobExperience.company)
+                      ],
+                      children: jobExperienceWidget);
+                }),
               ],
             ),
           )
