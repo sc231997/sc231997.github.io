@@ -145,7 +145,7 @@ class _JobsState extends State<Jobs> {
                       tabEdge: (constraints.maxWidth >= 800)
                           ? TabEdge.left
                           : TabEdge.top,
-                      color: Color(0xff233554),
+                      color: (Theme.of(context).brightness == Brightness.dark) ? Color(0xff233554) : Colors.yellow[200],
                       tabExtent: 100,
                       childPadding: const EdgeInsets.all(20.0),
                       selectedTextStyle: TextStyle(
