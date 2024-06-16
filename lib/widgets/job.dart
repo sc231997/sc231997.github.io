@@ -20,7 +20,7 @@ class _JobsState extends State<Jobs> {
     List<JobExperience> jobExperiences = <JobExperience>[
       JobExperience(
           company: 'Qualcomm',
-          role: 'Senior Software Engineer',
+          role: 'Sr. Software Engineer',
           duration: 'July 2022 - Present',
           url: 'https://www.qualcomm.com',
           experience: [
